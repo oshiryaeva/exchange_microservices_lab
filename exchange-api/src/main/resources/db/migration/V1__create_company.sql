@@ -1,4 +1,4 @@
-create sequence seq_company_id 
+CREATE sequence seq_company_id
 increment by 1 
 start 1;
 

@@ -57,7 +57,7 @@ public class TraderServiceImpl implements TraderService {
 		} catch (Exception e) {
 			conversionRequest.setStatus(ConversionRequestStatus.FAILED);
 			conversionRequest = conversionRequestRepository.save(conversionRequest);
-			throw new TraderException("Conversion request could not send");
+			throw new TraderException("Conversion request could not be send");
 		}
 		
 		
@@ -86,7 +86,7 @@ public class TraderServiceImpl implements TraderService {
 	
 	private void checkBalance(BigDecimal amount, Account account) throws TraderException {
 		if (amount.compareTo(account.getBalance()) >= 0) {
-			throw new TraderException("Account balance does not enough");
+			throw new TraderException("Account balance: insufficient funds");
 		}
 	}
 

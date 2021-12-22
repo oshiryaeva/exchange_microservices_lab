@@ -1,5 +1,6 @@
 package com.exchange.exchangeapi.queue;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @EnableRabbit
 @Component
+@Slf4j
 public class QueueConsumer {
 	
 	@Autowired
@@ -23,6 +25,7 @@ public class QueueConsumer {
         ConversionRequest conversionRequest = null;
 		try {
 			conversionRequest = objectMapper.readValue(message, ConversionRequest.class);
+			log.info("Exchange receive " + conversionRequest.toString());
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}

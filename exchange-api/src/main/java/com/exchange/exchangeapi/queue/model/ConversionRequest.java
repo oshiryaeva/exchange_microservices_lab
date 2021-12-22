@@ -15,9 +15,6 @@ import lombok.ToString;
 @ToString
 public class ConversionRequest implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
@@ -33,4 +30,6 @@ public class ConversionRequest implements Serializable {
 	private Long companyId;
 	
 	private Long traderId;
+
+
 }
